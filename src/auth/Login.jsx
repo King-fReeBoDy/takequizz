@@ -65,6 +65,7 @@ const Login = () => {
         <button className="bg-blue-700 text-gray-100 w-full py-2 mt-5">
           Get started
         </button>
+        <Link to="/quizpage">quiz</Link>
       </form>
     </div>
   );
