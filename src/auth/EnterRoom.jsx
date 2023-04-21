@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useState } from "react";
 
 function EnterRoom() {
@@ -9,8 +10,17 @@ function EnterRoom() {
       console.log("provide all credentials");
       return;
     }
+
+    try {
+      const { data } = axios(
+        `https://quizroomapp.pythonanywhere.com/Classroom/get_classrooms_by_name/${roomCode}/`
+      );
+      setRoomCode("");
+      console.log(data);
+    } catch (error) {
+      console.log(error);
+    }
     console.log(roomCode);
-    setRoomCode("");
   };
   return (
     <div className="h-screen flex flex-col justify-center items-center">
