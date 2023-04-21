@@ -4,7 +4,7 @@ import React, { useState } from "react";
 function EnterRoom() {
   const [roomCode, setRoomCode] = useState("");
 
-  const handleOnchange = (e) => {
+  const handleOnchange = async (e) => {
     e.preventDefault();
     if (!roomCode) {
       console.log("provide all credentials");
@@ -12,7 +12,7 @@ function EnterRoom() {
     }
 
     try {
-      const { data } = axios(
+      const { data } = await axios(
         `https://quizroomapp.pythonanywhere.com/Classroom/get_classrooms_by_name/${roomCode}/`
       );
       setRoomCode("");
